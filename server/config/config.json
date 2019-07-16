@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "jomasim",
+    "password": null,
+    "database": "insuredb",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "test": {
+    "username": "joma",
+    "password": null,
+    "database": "insuredb",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "port": 5432
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
