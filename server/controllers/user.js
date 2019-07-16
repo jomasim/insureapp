@@ -1,9 +1,8 @@
-// const User = require('../models').user;
 import models from '../models';
 
 const User = models.user;
 
-module.exports = {
+const user = {
   create (req, res) {
     return User
       .create({
@@ -16,3 +15,4 @@ module.exports = {
       .catch(error => res.status(400).send(error));
   },
 };
+export default user;
