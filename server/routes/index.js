@@ -3,6 +3,7 @@ import userSchema from '../middlewares/validateUser';
 import validate from 'express-validation';
 
 const userController = controllers.user;
+const authController = controllers.auth;
 
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send({
@@ -10,4 +11,5 @@ module.exports = (app) => {
   }));
 
   app.post('/api/users', validate(userSchema), userController.create);
+  app.post('/api/auth', [], authController.login);
 };
