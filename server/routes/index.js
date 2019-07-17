@@ -1,4 +1,6 @@
 import controllers from '../controllers';
+import userSchema from '../middlewares/validateUser';
+import validate from 'express-validation';
 
 const userController = controllers.user;
 
@@ -7,5 +9,5 @@ module.exports = (app) => {
     message: 'Welcome to the insure API!',
   }));
 
-  app.post('/api/users', userController.create);
+  app.post('/api/users', validate(userSchema), userController.create);
 };
