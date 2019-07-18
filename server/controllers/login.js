@@ -9,8 +9,8 @@ const auth = {
     const username = req.body.username;
     const textPassword = req.body.password;
     const member = await User.findOne({ where: { username } });
-    const result = bcrypt.compareSync(textPassword, member.password);
     if (member) {
+      const result = bcrypt.compareSync(textPassword, member.password);
       if (!result) {
         return res.status(401).send({ message: 'Invalid credentials try again' });
       }
