@@ -1,5 +1,6 @@
 import controllers from '../controllers';
 import userSchema from '../middlewares/validateUser';
+import validateLogin from '../middlewares/validateLogin';
 import validate from 'express-validation';
 
 const userController = controllers.user;
@@ -11,5 +12,5 @@ module.exports = (app) => {
   }));
 
   app.post('/api/users', validate(userSchema), userController.create);
-  app.post('/api/auth', [], authController.login);
+  app.post('/api/auth', validate(validateLogin), authController.login);
 };
