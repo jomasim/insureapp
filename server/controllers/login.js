@@ -11,7 +11,8 @@ const auth = {
       const token = jwt.sign({ email: member.email }, 'AFSFFDEFW121', {
         expiresIn: 86400 // expires in 24 hours
       });
-      res.status(200).send({ token: token, user: member, message: 'Login was successful!' });
+      const user = { username: member.username, phone: member.phone, email: member.email };
+      res.status(200).send({ token: token, user, message: 'Login was successful!' });
     }
     return res.status(500).send({ message: 'The user does not exist' });
   },
